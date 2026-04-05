@@ -1,17 +1,15 @@
-import { openai } from "../lib/ai";
+import { deepseek } from "../lib/ai";
 
-export async function streamCompletion(messages: any[]) {
-    try {
-        const res = await openai.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages
-        });
+export async function getCompletion(messages: any[]) {
+  try {
+    const res = await deepseek.chat.completions.create({
+      model: "deepseek-chat",
+      messages
+    });
 
-        return res.choices[0].message.content;
-
-    } catch (error) {
-        console.error("OPENAI ERROR:", error);
-
-        return "AI is not available";
-    }
+    return res.choices[0].message.content ?? "";
+  } catch (e) {
+    console.error("DeepSeek ошибка:", e);
+    return "⚠️ Ошибка при обращении к DeepSeek";
+  }
 }

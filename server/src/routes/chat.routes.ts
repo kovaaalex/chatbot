@@ -9,11 +9,12 @@ import {
     incrementUsage
 } from "../services/usage.service";
 
-import { streamCompletion } from "../services/ai.service";
+import { getCompletion } from "../services/ai.service";
 
 const router = Router();
 
 router.post("/", async (req, res) => {
+    console.log("BODY:", req.body);
     try {
         const { chatId, message, userId } = req.body;
 
@@ -27,7 +28,7 @@ router.post("/", async (req, res) => {
 
         const history = await getMessages(chatId);
 
-        const reply = await streamCompletion(
+        const reply = await getCompletion(
             history.map(m => ({
                 role: m.role,
                 content: m.content

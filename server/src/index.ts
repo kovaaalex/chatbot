@@ -12,5 +12,4 @@ app.get("/health", (req, res) => {
     res.json({ ok: true });
 });
 app.use("/api/chat", chatRoutes);
-
 export default app;
