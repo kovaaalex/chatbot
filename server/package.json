@@ -1,10 +1,22 @@
 {
   "dependencies": {
     "@supabase/supabase-js": "^2.101.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "openai": "^6.33.0",
+    "serverless-http": "^4.0.0",
     "supabase": "^2.84.5"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0"
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^6.0.2"
   },
   "name": "server",
   "version": "1.0.0",
@@ -13,6 +25,8 @@
     "lib": "lib"
   },
   "scripts": {
+    "dev": "ts-node-dev --esm src/index.ts",
+    "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
